@@ -1,0 +1,23 @@
+<?php 
+
+//AND = &&
+
+$empregado = true;
+$homeOffice = true;
+
+var_dump($empregado && $homeOffice); //bool(true)
+
+//OR = ||
+
+var_dump($empregado || $homeOffice); //bool(true)
+
+//OR Exclusivo ^
+
+var_dump($empregado ^ $homeOffice); //int(0) == false 
+
+//NOT !
+
+var_dump(!$homeOffice); //bool(false)
+
+
+?>
