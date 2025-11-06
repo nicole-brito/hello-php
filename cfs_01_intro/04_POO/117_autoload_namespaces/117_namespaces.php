@@ -11,7 +11,7 @@ $login = new Login;
 //$login->email = 'email.com';
 //$login->password = '123';
 
-//echo $login->auth();
+//echo $login->auth(); e
 
 $user = ['name' => 'Nicole', 'email' => 'email.com'];
 
