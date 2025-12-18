@@ -13,9 +13,9 @@ var_dump($person("Nic")); //string(3) "Nic"
 /*
 * object(Closure)#1 (3) {
 * ["name"]=>
-* string(87) "{closure:C:\Users\nicol\PhpstormProjects\hello-php\cfs_01_intro\01_intro\closure.php:5}"
+* string(87) "{closure:C:\Users\nicol\PhpstormProjects\hello-php\cfs_01_intro\intro_01\closure.php:5}"
 * ["file"]=>
-* string(75) "C:\Users\nicol\PhpstormProjects\hello-php\cfs_01_intro\01_intro\closure.php"
+* string(75) "C:\Users\nicol\PhpstormProjects\hello-php\cfs_01_intro\intro_01\closure.php"
 * ["line"]=>
 *  int(5)
 }
