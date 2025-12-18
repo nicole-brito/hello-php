@@ -2,30 +2,31 @@
 
 namespace exercises\poo_01;
 
-class ContaCorrente implements ContaPort
+class ContaCorrente extends Conta
 {
     public int $tarifa = 0;
 
-    public function sacar($saldo): void
+    public function sacar($valor): void
     {
-        echo "Digite o valor de saque da conta corrente:\n";
-        $valor = readline();
-
-        if ($valor > $saldo) {
+        if ($valor > $this->getSaldo()) {
             echo "Uma taxa será cobrada\n";
             echo "Seu novo saldo é de ";
-            $saldo = $saldo - $valor - 5;
+            $this->saldo = $this->getSaldo() - $valor - 5;
             $this->tarifa++;
         } else {
             echo "Seu novo saldo é de ";
-            $saldo = $saldo - $valor;
+//Por que ele funciona dos dois jeitos? (porque int $saldo em Conta é public(?))
+//Protected
+            $this->saldo = $this->saldo - $valor;
         }
-        echo $saldo . "\n";
+        echo $this->getSaldo() . "\n";
     }
 
     public function verTaxas(): void
     {
-        echo $this->tarifa * 5;
+        echo "Vezes que a tarifa foi cobrada: " . $this->tarifa . "\n";
+        echo "Valor: " . $this->tarifa * 5 . "\n";
     }
+
 
 }
