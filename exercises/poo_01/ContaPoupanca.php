@@ -12,6 +12,6 @@ class ContaPoupanca extends Conta
 
     public function executarSaque($valor): void
     {
-        $valor > $this->saldo ? throw error : $this->saldo = $this->saldo - $valor;
+//        $valor > $this->saldo ? throw error : $this->saldo = $this->saldo - $valor;
     }
 }

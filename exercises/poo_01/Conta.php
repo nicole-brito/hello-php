@@ -3,6 +3,8 @@
 namespace exercises\poo_01;
 
 //É abstrata, porque o objeto instanciado sempre será ContaCorrente ou ContaPoupança
+use http\Exception;
+
 abstract class Conta
 {
     //protected = pode ser acessada pela classe e por quem estende ela
@@ -21,7 +23,7 @@ abstract class Conta
 
     private function verNegativo(float $valor): void
     {
-        $valor < 0 ? throw error;
+        if ($valor < 0) throw Exception("Conta já existe");
     }
 
     abstract public function executarSaque($valor): void;
@@ -38,5 +40,13 @@ abstract class Conta
         $this->verNegativo($valor);
         $this->saldo = $this->saldo + $valor;
         return true;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNumeroConta(): string
+    {
+        return $this->numeroConta;
     }
 }
