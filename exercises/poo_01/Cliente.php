@@ -2,13 +2,13 @@
 
 namespace exercises\poo_01;
 
-class Cliente implements ClientePort
+class Cliente
 {
-    public string $nome;
-    public string $cpf;
-    public Conta $bankAccount;
+    private string $nome;
+    private string $cpf;
+    private ?array $contas;
 
-    public function addConta()
+    public function addConta(Conta $conta)
     {
 
     }
@@ -18,9 +18,9 @@ class Cliente implements ClientePort
 
     }
 
-    public function exibirContas()
+    public function exibirContas(): array
     {
-
+        return $this->contas;
     }
 
 }

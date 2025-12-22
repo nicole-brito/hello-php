@@ -2,13 +2,12 @@
 
 namespace exercises\poo_01;
 
-require __DIR__ . '/ContaPort.php';
-
 //É abstrata, porque o objeto instanciado sempre será ContaCorrente ou ContaPoupança
 abstract class Conta
 {
-    private string $numeroConta;
-    protected int $saldo;
+    //protected = pode ser acessada pela classe e por quem estende ela
+    protected string $numeroConta;
+    protected float $saldo;
 
     //Deve ter um construtor porque "a propriedade não pode ser acessada antes de ser inicializada" (ou deve ser nullable)
     public function __construct(string $numeroConta, int $saldo)
@@ -17,46 +16,27 @@ abstract class Conta
         $this->saldo = $saldo;
     }
 
+    //uma função abstract obriga quem estende a implementar ela
+    abstract public function verSaldo(): float;
 
-    public function verSaldo(): void
+    private function verNegativo(float $valor): void
     {
-        echo "O saldo da conta {$this->getNumeroConta()} é: {$this->saldo}\n";
+        $valor < 0 ? throw error;
     }
 
-    public function sacar($valor): void
+    abstract public function executarSaque($valor): void;
+
+    final public function sacar(float $valor): bool
     {
+        $this->verNegativo($valor);
+        $this->executarSaque($valor);
+        return true;
     }
 
-    public function depositar($saldo): void
+    public function depositar(float $valor): bool
     {
-        echo "Digite o valor de depósito:\n";
-        $valorDeposito = readline();
-
-        if ($valorDeposito < 0) {
-            echo "Não foi possível realizar o depósito\n";
-        } else {
-            echo "Seu novo saldo é de ";
-            $saldo = $saldo + $valorDeposito;
-            echo $saldo . "\n";
-        }
+        $this->verNegativo($valor);
+        $this->saldo = $this->saldo + $valor;
+        return true;
     }
-
-    /**
-     * @return int
-     */
-    public function getSaldo(): int
-    {
-        return $this->saldo;
-    }
-
-    /**
-     * @return string
-     */
-    public function getNumeroConta(): string
-    {
-        return $this->numeroConta;
-    }
-
-
-
 }

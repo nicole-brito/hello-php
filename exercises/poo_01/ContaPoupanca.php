@@ -1,20 +1,17 @@
 <?php
-//
-//namespace exercises\poo_01;
-//
-//abstract class ContaPoupanca extends Conta
-//{
-//    public function sacar($saldo): void
-//    {
-//        echo "Digite o valor de saque da conta poupança:\n";
-//        $valor = readline();
-//
-//        if ($valor > $saldo) {
-//            echo "Não foi possível realizar o saque\n";
-//        } else {
-//            echo "Seu novo saldo é de ";
-//            $saldo = $saldo - $valor;
-//            echo $saldo . "\n";
-//        }
-//    }
-//}
+
+namespace exercises\poo_01;
+
+class ContaPoupanca extends Conta
+{
+
+    public function verSaldo(): float
+    {
+        return $this->saldo;
+    }
+
+    public function executarSaque($valor): void
+    {
+        $valor > $this->saldo ? throw error : $this->saldo = $this->saldo - $valor;
+    }
+}

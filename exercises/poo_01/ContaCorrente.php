@@ -4,29 +4,28 @@ namespace exercises\poo_01;
 
 class ContaCorrente extends Conta
 {
-    public int $tarifa = 0;
+    public float $totalTaxa;
 
-    public function sacar($valor): void
+    private function addTaxa(float $valor): void
     {
-        if ($valor > $this->getSaldo()) {
-            echo "Uma taxa será cobrada\n";
-            echo "Seu novo saldo é de ";
-            $this->saldo = $this->getSaldo() - $valor - 5;
-            $this->tarifa++;
-        } else {
-            echo "Seu novo saldo é de ";
-//Por que ele funciona dos dois jeitos? (porque int $saldo em Conta é public(?))
-//Protected
-            $this->saldo = $this->saldo - $valor;
-        }
-        echo $this->getSaldo() . "\n";
+        $taxa = 5;
+
+        $this->saldo = $this->saldo - $valor - $taxa;
+        $this->totalTaxa = $this->totalTaxa + $taxa;
     }
 
-    public function verTaxas(): void
+    public function executarSaque($valor): void
     {
-        echo "Vezes que a tarifa foi cobrada: " . $this->tarifa . "\n";
-        echo "Valor: " . $this->tarifa * 5 . "\n";
+        $valor > $this->saldo ? $this->addTaxa() : $this->saldo = $this->saldo - $valor;
     }
 
+    public function verTaxas(): float
+    {
+        return $this->totalTaxa;
+    }
 
+    public function verSaldo(): float
+    {
+        return $this->saldo;
+    }
 }
