@@ -16,7 +16,7 @@ class ContaCorrente extends Conta
 
     public function executarSaque($valor): void
     {
-        $valor > $this->saldo ? $this->addTaxa() : $this->saldo = $this->saldo - $valor;
+        $valor > $this->saldo ? $this->addTaxa($valor) : $this->saldo = $this->saldo - $valor;
     }
 
     public function verTaxas(): float
@@ -27,5 +27,9 @@ class ContaCorrente extends Conta
     public function verSaldo(): float
     {
         return $this->saldo;
+    }
+
+    public function exibirDados(): void {
+        echo "Conta Corrente: {$this->numeroConta} - Saldo: R$ {$this->saldo}\n";
     }
 }

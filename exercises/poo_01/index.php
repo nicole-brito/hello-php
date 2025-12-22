@@ -10,26 +10,30 @@ use exercises\poo_01\ContaCorrente;
 use exercises\poo_01\ContaPoupanca;
 use exercises\poo_01\Cliente;
 
-$teste = new Cliente(
-    'Nic',
-    '123',);
-//$teste = new ContaPoupanca();
+//$teste = new Cliente(
+//    'Nic',
+//    '123',);
+////$teste = new ContaPoupanca();
+//
+//
+//echo $teste->addConta(
+//    new ContaCorrente(
+//        123,
+//        12
+//    )
+//);
+//
+//echo $teste->sacar(10);
+//echo $teste->verTaxas();
+//echo $teste->sacar(10);
+//echo $teste->verTaxas();
+//echo $teste->sacar(10);
+//echo $teste->verTaxas();
 
 
-echo $teste->addConta(
-    new ContaCorrente(
-        123,
-        12
-    )
-);
+$cliente = new Cliente("Nicole", '123');
 
-echo $teste->sacar(10);
-echo $teste->verTaxas();
-echo $teste->sacar(10);
-echo $teste->verTaxas();
-echo $teste->sacar(10);
-echo $teste->verTaxas();
-echo $teste->sacar(10);
-echo $teste->verTaxas();
+$cliente->addConta(new ContaCorrente(101, 500.00));
+$cliente->addConta(new ContaPoupanca(202, 1200.00));
 
-
+$cliente->exibirContas();

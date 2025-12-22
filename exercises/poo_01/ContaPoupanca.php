@@ -2,6 +2,8 @@
 
 namespace exercises\poo_01;
 
+use http\Exception;
+
 class ContaPoupanca extends Conta
 {
 
@@ -12,6 +14,10 @@ class ContaPoupanca extends Conta
 
     public function executarSaque($valor): void
     {
-//        $valor > $this->saldo ? throw error : $this->saldo = $this->saldo - $valor;
+        $valor > $this->saldo ? throw Exception("Valor negativo") : $this->saldo = $this->saldo - $valor;
+    }
+
+    public function exibirDados(): void {
+        echo "Conta Poupança: {$this->numeroConta} - Saldo: R$ {$this->saldo}\n";
     }
 }

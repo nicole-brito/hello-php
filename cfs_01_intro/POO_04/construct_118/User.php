@@ -5,7 +5,7 @@ namespace POO_04\construct_118;
 class User
 {
     /*
-     * __construct é um méodo mágico chamado automaticamente sempre que um novo objeto é instanciado
+     * __construct é um mé?odo mágico chamado automaticamente sempre que um novo objeto é instanciado
      * É executado primeiro que todos e serve para inicializar um objeto com os valores iniciais das propriedades ou executa as configurações necessárias
      *
      */

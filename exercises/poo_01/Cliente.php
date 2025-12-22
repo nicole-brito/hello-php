@@ -10,21 +10,15 @@ class Cliente
     private string $cpf;
     private ?array $contas;
 
-    public function __construct(string $nome, string $cpf, array $contas)
+    public function __construct(string $nome, string $cpf)
     {
         $this->nome = $nome;
         $this->cpf = $cpf;
-        $this->contas[] = $contas;
     }
 
-    public function addConta(Conta $conta)
+    public function addConta(Conta $conta): void
     {
-//        if (in_array($this->conta->getNumeroConta())) {
-//            throw Exception::error_log("Conta já existe", 0,null, null);
-//        }
         $this->contas[] = $conta;
-//        echo "Contas: " . implode($this->contas);
-        echo var_dump($this->contas);
     }
 
     public function removerConta()
@@ -34,6 +28,10 @@ class Cliente
 
     public function exibirContas(): array
     {
+        echo "Cliente: {$this->nome}\n";
+        foreach ($this->contas as $conta) {
+            $conta->exibirDados();
+        }
         return $this->contas;
     }
 

@@ -8,7 +8,7 @@ class Login
     public $email;
     public $password;
 
-    //Método
+    //Mé?odo
     public function login()
     {
         return $this->email . ' ' . $this->password;
